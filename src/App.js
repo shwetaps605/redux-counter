@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { increment, decrement } from './actions'
+import { increment, decrement, signIn } from './actions'
 
 function App() {
   const counter = useSelector( state => state.counter)
@@ -12,14 +12,14 @@ function App() {
     <div className="App">
       <header>
         <h2>Counter:{counter}</h2>
-        <button>Log In</button>
+        <button onClick={()=> dispatch(signIn())}>Log In</button>
       </header>
 
       <main>
-        <button onClick= {()=> dispatch(increment())}>+</button>
+        <button onClick= {()=> dispatch(increment(5))}>+</button>
         <button onClick= {()=> dispatch(decrement())}>-</button>
       </main>
-      
+
       {
         isLogged && 
         <section>
